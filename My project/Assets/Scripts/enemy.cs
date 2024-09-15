@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    [SerializeField]
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +17,8 @@ public class enemy : MonoBehaviour
     void Update()
     {
         //loopt op de Z as
-
-
+        
+        transform.position += transform.forward * speed;
     }
 
     public class Enemy
