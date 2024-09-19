@@ -57,14 +57,16 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        /*if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
-            
-            Destroy (GameObject.FindWithTag(delete));
             print("Go away my minions");
-            
+            GameObject[] vijanden = GameObject.FindGameObjectsWithTag("delete");
+            foreach (GameObject delete in vijanden)
+            {
+                Destroy(delete);
+            }
         }
-        */
+        
 
         //Laat de EnemySpawner alle enemies verwijderen als je op de "Q" - toets drukt.
 
