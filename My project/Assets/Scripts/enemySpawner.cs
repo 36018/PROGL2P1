@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     {
 
         //Gebruik de Add methode om je enemies aan de lijst toe te voegen.
-        
+       /* 
         //Gebruik Instantiate om je enemies te creeren.
         GameObject vijand = Instantiate(enemy);
         enemies.Add(vijand);
@@ -34,15 +34,14 @@ public class EnemySpawner : MonoBehaviour
         enemies.Clear();
         //Gebruik Destroy om je enemies te verwijderen.
         Destroy(vijand);
-
-
-        //Laat de EnemySpawner in 1 keer 100 enemies spawnen als je op "W" - toets drukt.
-        for (int i = 0; i < 100; i++)
+       */
+        if (Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.W))
+            //Laat de EnemySpawner in 1 keer 100 enemies spawnen als je op "W" - toets drukt.
+            for (int i = 0; i < 100; i++)           
             {
                 print("Spawn my minions");
-                Instantiate(enemy);
+                enemies.Add(Instantiate(enemy));
             }
         }
         //Laat de EnemySpawner elke seconde 3 enemies spawnen.
@@ -52,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (elapsedTime > 3f)
         {
-            Instantiate(enemy);
+            enemies.Add(Instantiate(enemy));
             elapsedTime = 0f;
         }
 
@@ -60,11 +59,12 @@ public class EnemySpawner : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             print("Go away my minions");
-            GameObject[] vijanden = GameObject.FindGameObjectsWithTag("delete");
-            foreach (GameObject delete in vijanden)
+           // GameObject[] vijanden = GameObject.FindGameObjectsWithTag("delete");
+            foreach (GameObject enemy in enemies)
             {
-                Destroy(delete);
+                Destroy(enemy);
             }
+            enemies.Clear();
         }
         
 
