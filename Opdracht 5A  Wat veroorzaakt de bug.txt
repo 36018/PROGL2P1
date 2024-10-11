@@ -1,0 +1,8 @@
+Opdracht 5A : Wat veroorzaakt de bugs?
+
+De enemy schiet nooit!
+De shotrange is 0
+
+Het schot raakt de speler niet
+Playerr is met 2 r, dit moet er 1 zijn.
+
