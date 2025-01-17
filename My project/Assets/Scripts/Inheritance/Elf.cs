@@ -1,6 +1,7 @@
 using UnityEngine;
+using static Unit;
 
-public class Elf : EnemyParent
+public class Elf : Unit, IMovable, IDamagable
 {
     private Renderer renderer;
     private float elapsedTime = 0f;
@@ -21,7 +22,6 @@ public class Elf : EnemyParent
 
     private void ToggleVisibility()
     {
-
         elapsedTime += Time.deltaTime;
 
         if (elapsedTime > 3 && renderer.enabled)
@@ -37,9 +37,5 @@ public class Elf : EnemyParent
             renderer.enabled = true;
             elapsedTime = 0f;
         }
-        
-       
-
-        
     }
 }

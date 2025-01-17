@@ -1,6 +1,7 @@
 using UnityEngine;
+using static Unit;
 
-public class EnemyParent : MonoBehaviour
+public class Unit : MonoBehaviour, IMovable, IDamagable
 {
     public Transform[] waypoints;
     private Vector3 targetposition = Vector3.zero;
@@ -14,7 +15,8 @@ public class EnemyParent : MonoBehaviour
 
     private float currentHealth;
 
-   
+    public int Health { get; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,9 @@ public class EnemyParent : MonoBehaviour
     {
         Move();
     }
+  
 
-    protected void Move()
+    public virtual void Move()
     {
         var step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].position, step);
